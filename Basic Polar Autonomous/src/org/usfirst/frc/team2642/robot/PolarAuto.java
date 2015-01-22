@@ -57,7 +57,7 @@ public class PolarAuto extends IterativeRobot {
     	gyro.reset();
     	encoder1.reset();
     	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, 1);
+    		myRobot.mecanumDrive_Polar(0, 90, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
@@ -67,7 +67,7 @@ public class PolarAuto extends IterativeRobot {
     	gyro.reset();
     	encoder1.reset();
     	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, 1);
+    		myRobot.mecanumDrive_Polar(0, 90, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
@@ -77,7 +77,7 @@ public class PolarAuto extends IterativeRobot {
     	gyro.reset();
     	encoder1.reset();
     	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, 1);
+    		myRobot.mecanumDrive_Polar(0, 90, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
@@ -87,11 +87,11 @@ public class PolarAuto extends IterativeRobot {
     	gyro.reset();
     	encoder1.reset();
     	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, 1);
+    		myRobot.mecanumDrive_Polar(0, 90, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	myRobot.mecanumDrive_Polar(0, 0, -1);
+    	myRobot.mecanumDrive_Polar(0, 1080, 1);
     	System.out.println("ANUS!");
     	}
         	
@@ -133,7 +133,7 @@ public class PolarAuto extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        myRobot.arcadeDrive(stick);
+        myRobot.mecanumDrive_Polar(stick.getMagnitude(), stick.getDirectionDegrees(), stick.getRawAxis(4));
     }
     
     /**
