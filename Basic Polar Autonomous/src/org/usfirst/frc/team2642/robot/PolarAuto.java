@@ -3,6 +3,7 @@ package org.usfirst.frc.team2642.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -51,48 +52,55 @@ public class PolarAuto extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-    	while(encoder1.getDistance() < 2000){
-    		myRobot.mecanumDrive_Polar(0.5, 0, 0);
+    	while(encoder1.getDistance() < 150){
+    		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, -1);
+    	while(gyro.getAngle() < 83){
+    		myRobot.mecanumDrive_Polar(0, 83, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	while(encoder1.getDistance() < 2000){
-    		myRobot.mecanumDrive_Polar(0.5, 0, 0);
+    	while(encoder1.getDistance() < 150){
+    		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, -1);
+    	while(gyro.getAngle() < 83){
+    		myRobot.mecanumDrive_Polar(0, 83, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	while(encoder1.getDistance() < 2000){
-    		myRobot.mecanumDrive_Polar(0.5, 0, 0);
+    	while(encoder1.getDistance() < 150){
+    		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, -1);
+    	while(gyro.getAngle() < 83){
+    		myRobot.mecanumDrive_Polar(0, 83, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	while(encoder1.getDistance() < 2000){
-    		myRobot.mecanumDrive_Polar(0.5, 0, 0);
+    	while(encoder1.getDistance() < 150){
+    		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	while(gyro.getAngle() < 90){
-    		myRobot.mecanumDrive_Polar(0, 90, -1);
+    	while(gyro.getAngle() < 83){
+    		myRobot.mecanumDrive_Polar(0, 83, -1);
     	}
     	gyro.reset();
     	encoder1.reset();
-    	myRobot.mecanumDrive_Polar(0, 1080, 1);
-    	System.out.println("ANUS!");
+    	Timer.delay(1);
+    	myRobot.mecanumDrive_Polar(0, 3600, 1);
+    	System.out.println("I like big butts and I cannot lie!");
+    	System.out.println("The other brothers can't deny!");
+    	System.out.println("When a girl walks in with an itty bitty waist");
+    	System.out.println("And a round thing in your face you get");
+    	System.out.println("Sprung!");
+
+    	
     	}
         	
     	/**
