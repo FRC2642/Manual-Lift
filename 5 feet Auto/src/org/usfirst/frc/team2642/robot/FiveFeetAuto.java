@@ -24,16 +24,21 @@ public class FiveFeetAuto extends IterativeRobot {
 	double Kp = .03;
 	Gyro gyro1;
 	Encoder encoder1;
+	final int frontLeftChannel	= 2;
+    final int rearLeftChannel	= 3;
+    final int frontRightChannel	= 1;
+    final int rearRightChannel	= 0;
 	
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-    	myRobot = new RobotDrive(0,1);
+
+        myRobot = new RobotDrive(frontLeftChannel, rearLeftChannel, frontRightChannel, rearRightChannel);
     	stick = new Joystick(0);
-    	encoder1 = new Encoder(0, 1);
-    	gyro1 = new Gyro(4);
+    	encoder1 = new Encoder(4, 5);
+    	gyro1 = new Gyro(0);
     	myRobot.setInvertedMotor(MotorType.kFrontLeft, true);
     	myRobot.setInvertedMotor(MotorType.kRearLeft, true);
     }
@@ -51,8 +56,8 @@ public class FiveFeetAuto extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-    	while(-encoder1.getDistance() < 2200){
-    		myRobot.mecanumDrive_Polar(.5, gyro1.getAngle() * Kp, 0.0);
+    	while(-encoder1.getDistance() < 1700){
+    		myRobot.mecanumDrive_Polar(0.3, gyro1.getAngle() * Kp, 0.0);
     		}
     		gyro1.reset();
     		encoder1.reset();
@@ -61,8 +66,8 @@ public class FiveFeetAuto extends IterativeRobot {
     		}
     		gyro1.reset();
     		encoder1.reset();
-    	while(-encoder1.getDistance() < 2200){
-        	myRobot.mecanumDrive_Polar(.5, gyro1.getAngle() * Kp, 0.0);
+    	while(-encoder1.getDistance() < 1700){
+        	myRobot.mecanumDrive_Polar(0.3, gyro1.getAngle() * Kp, 0.0);
     		}
 			gyro1.reset();
 			encoder1.reset();
@@ -84,7 +89,7 @@ public class FiveFeetAuto extends IterativeRobot {
 		
 		*/
     /**
-     * This function is called once each time the robot enters tele-operated mode
+     * This function is called once each time the robot enters teleop 
      */
     public void teleopInit(){
     	gyro1.reset();
