@@ -3,7 +3,6 @@ package org.usfirst.frc.team2642.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -21,8 +20,7 @@ public class PolarAuto extends IterativeRobot {
 	Joystick stick;
 	int autoLoopCounter;
 	Gyro gyro;
-	Encoder encoder1;
-	Encoder encoder2;	
+	Encoder encoder;
 	double Kp = .03;
     /**
      * This function is run when the robot is first started up and should be
@@ -32,8 +30,7 @@ public class PolarAuto extends IterativeRobot {
     	myRobot = new RobotDrive(0,1);
     	stick = new Joystick(0);
     	gyro = new Gyro(4);
-    	encoder1 = new Encoder(0, 1);
-    	encoder2 = new Encoder(2, 3);
+    	encoder = new Encoder(0, 1);
     	myRobot.setInvertedMotor(MotorType.kFrontLeft, true);
     	myRobot.setInvertedMotor(MotorType.kRearLeft, true);
     }
@@ -44,71 +41,72 @@ public class PolarAuto extends IterativeRobot {
     public void autonomousInit() {
     	autoLoopCounter = 0;
     	gyro.reset();
-    	encoder1.reset();
-    	encoder2.reset();
+    	encoder.reset();
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-    	while(encoder1.getDistance() < 150){
+    	while(encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
-    	encoder1.reset();
+    	encoder.reset();
     	while(gyro.getAngle() < 83){
-    		myRobot.mecanumDrive_Polar(0, 83, -1);
+    		myRobot.mecanumDrive_Polar(0, 83, -.5);
     	}
     	gyro.reset();
-    	encoder1.reset();
-    	while(encoder1.getDistance() < 150){
+    	encoder.reset();
+    	while(encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
-    	encoder1.reset();
+    	encoder.reset();
     	while(gyro.getAngle() < 83){
-    		myRobot.mecanumDrive_Polar(0, 83, -1);
+    		myRobot.mecanumDrive_Polar(0, 83, -.5);
     	}
     	gyro.reset();
-    	encoder1.reset();
-    	while(encoder1.getDistance() < 150){
+    	encoder.reset();
+    	while(encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
-    	encoder1.reset();
+    	encoder.reset();
     	while(gyro.getAngle() < 83){
-    		myRobot.mecanumDrive_Polar(0, 83, -1);
+    		myRobot.mecanumDrive_Polar(0, 83, -.5);
     	}
     	gyro.reset();
-    	encoder1.reset();
-    	while(encoder1.getDistance() < 150){
+    	encoder.reset();
+    	while(encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
-    	encoder1.reset();
+    	encoder.reset();
     	while(gyro.getAngle() < 83){
-    		myRobot.mecanumDrive_Polar(0, 83, -1);
+    		myRobot.mecanumDrive_Polar(0, 83, -.5);
     	}
+    }
+    	/**
     	gyro.reset();
-    	encoder1.reset();
+    	encoder.reset();
     	Timer.delay(1);
-    	myRobot.mecanumDrive_Polar(0, 3600, 1);
+    	myRobot.mecanumDrive_Polar(0, 3600, .5);
     	System.out.println("I like big butts and I cannot lie!");
     	System.out.println("The other brothers can't deny!");
     	System.out.println("When a girl walks in with an itty bitty waist");
     	System.out.println("And a round thing in your face you get");
     	System.out.println("Sprung!");
-
+    	 **/
     	
-    	}
+    	
         	
     	/**
-    	}else if(encoder1.getDistance() <= 20 && encoder1.getDistance() > 10){
+    	}else if(encoder.getDistance() <= 20 && encoder.getDistance() > 10){
     		myRobot.mecanumDrive_Cartesian(0.0, 0.5, gyro.getAngle() * Kp, 0.0);
     		//myRobot.mecanumDrive_Cartesian(0.0,  0.0,  0.0, 0.0);
         	Timer.delay(1.0);
-    	}else if(encoder1.getDistance() > 20){
+    	}else if(encoder.getDistance() > 20){
     		myRobot.mecanumDrive_Cartesian(0.0, 0.5, gyro.getAngle() * Kp, 0.0);
     		//myRobot.mecanumDrive_Cartesian(0.0,  0.0,  0.0, 0.0);
         	Timer.delay(1.0);
@@ -116,11 +114,11 @@ public class PolarAuto extends IterativeRobot {
     		myRobot.mecanumDrive_Cartesian(0.5, 0.0, gyro.getAngle() * Kp, 0.0);
     		myRobot.mecanumDrive_Cartesian(0.0,  0.0,  0.0, 0.0);
         	Timer.delay(1.0);
-        	encoder1.reset();
+        	encoder.reset();
         	encoder2.reset();
     	}	
     	}
-    	/**
+    	/*
     	if(autoLoopCounter < 100) //Check if we've completed 100 loops (approximately 2 seconds)
 		{
 			myRobot.drive(-0.5, 0.0); 	// drive forwards half speed
