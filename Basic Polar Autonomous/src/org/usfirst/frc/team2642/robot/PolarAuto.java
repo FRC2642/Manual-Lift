@@ -48,7 +48,7 @@ public class PolarAuto extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-    	while(encoder.getDistance() < 150){
+    	while(-encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
@@ -58,7 +58,7 @@ public class PolarAuto extends IterativeRobot {
     	}
     	gyro.reset();
     	encoder.reset();
-    	while(encoder.getDistance() < 150){
+    	while(-encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
@@ -68,7 +68,7 @@ public class PolarAuto extends IterativeRobot {
     	}
     	gyro.reset();
     	encoder.reset();
-    	while(encoder.getDistance() < 150){
+    	while(-encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
@@ -78,7 +78,7 @@ public class PolarAuto extends IterativeRobot {
     	}
     	gyro.reset();
     	encoder.reset();
-    	while(encoder.getDistance() < 150){
+    	while(-encoder.getDistance() < 150){
     		myRobot.mecanumDrive_Polar(0.5, gyro.getAngle() * Kp, 0);
     	}
     	gyro.reset();
