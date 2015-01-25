@@ -75,7 +75,8 @@ public class FiveFeetAuto extends IterativeRobot {
 			myRobot.mecanumDrive_Polar(0.0, 172, .5);
 			}
 			gyro1.reset();
-			encoder1.reset();  		
+			encoder1.reset();  	
+			myRobot.mecanumDrive_Polar(0.0, 0.0, 0.0);
     	}
     	
     	/**
