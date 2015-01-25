@@ -3,6 +3,7 @@ package org.usfirst.frc.team2642.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -142,7 +143,10 @@ public class PolarAuto extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        myRobot.mecanumDrive_Polar(stick.getMagnitude(), stick.getDirectionDegrees(), stick.getRawAxis(4));
+    	while (isOperatorControl() && isEnabled()) {
+            Timer.delay(0.005);		// wait for a motor update time
+    	myRobot.mecanumDrive_Polar(stick.getMagnitude(), stick.getDirectionDegrees(), stick.getRawAxis(4));
+    	}
     }
     
     /**
