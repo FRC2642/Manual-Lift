@@ -85,6 +85,9 @@ public class PolarAuto extends IterativeRobot {
     	encoder.reset();
     	while(gyro.getAngle() < 83){
     		myRobot.mecanumDrive_Polar(0, 83, -.5);
+    		encoder.reset();
+    	while(encoder.getDistance() < 10000000);
+    		myRobot.mecanumDrive_Polar(0.0, 0.0, 0.0);
     	}
     }
     	/**
